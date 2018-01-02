@@ -2,7 +2,9 @@
 
 clear
 
-pathtoapp='Desktop/cleanfox'
+pathtoapp=$(git rev-parse --show-toplevel)/..
+
+echo $pathtoapp
 
 cd $pathtoapp
 mkdir commands
@@ -20,7 +22,7 @@ echo "cd $pathtoapp/pigx && npm start" > pigx.command
 chmod +x pigx.command
 open pigx.command
 
-echo "mongod --dbpath ~/misterfox/db/" > mongo.command
+echo "mongod --dbpath $pathtoapp/db/cleanfox" > mongo.command
 chmod +x mongo.command
 open mongo.command
 
